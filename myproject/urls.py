@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import BardAnswerView,BardResponseUpdateView,BardRequestCreateView
+from myapp.views import BardAnswerView,BardResponseUpdateView,BardRequestCreateView,CropSeedPriceView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',BardAnswerView.as_view(), name='get_bard_answer'),
     path('api/<int:pk>/', BardResponseUpdateView.as_view(), name='update-response'),
     path('api/create', BardRequestCreateView.as_view(), name='create-bard-request'),
+    # path('api/amazon',scrap.as_view(), name='bard-answer'),
+    path('cropseed/price/', CropSeedPriceView.as_view(), name='cropseed-price'),
 ]
